@@ -1,14 +1,14 @@
 let products = [
-    { name: "банан", qnt: 10, status: "unbought" },
-    { name: "клубника", qnt: 5, status: "unbought" },
-    { name: "киви", qnt: 10, status: "unbought" },
-    { name: "хлеб", qnt: 2, status: "bought" },
-    { name: "молоко", qnt: 2, status: "bought", },
-    { name: "масло", qnt: 2, status: "bought" },
-    { name: "яйца", qnt: 30, status: "bought" },
-    { name: "рыба", qnt: 3, status: "bought" },
-    { name: "ананас", qnt: 2, status: "unbought" },
-    { name: "яблоко", qnt: 15, status: "unbought" },
+    { name: "banana", qnt: 10, status: "false" },
+    { name: "strawberry", qnt: 5, status: "false" },
+    { name: "kiwi", qnt: 10, status: "false" },
+    { name: "bread", qnt: 2, status: "true" },
+    { name: "milk", qnt: 2, status: "true", },
+    { name: "butter", qnt: 2, status: "true" },
+    { name: "eggs", qnt: 30, status: "true" },
+    { name: "fish", qnt: 3, status: "true" },
+    { name: "pineapple", qnt: 2, status: "false" },
+    { name: "apple", qnt: 15, status: "false" },
   ];
   
 
@@ -17,7 +17,7 @@ const sortProducts = (products) => {
     const bought = [];
 
     for (let i = 0; i < products.length; i++) {
-        if (products[i].status === "unbought") {
+        if (products[i].status === "false") {
           unbought.push(products[i]);
         } else {
           bought.push(products[i]);
@@ -38,7 +38,7 @@ const addProduct = (productName) => {
     products.push({
       name: productName,
       qnt: 1,
-      status: "unbought",
+      status: "false",
     });
   }
 
@@ -55,7 +55,7 @@ const buyProduct = (productName) => {
   const findedProduct = products.find((product) => product.name === productName);
 
   if (findedProduct) {
-    findedProduct.status = "bought";
+    findedProduct.status = "true";
   } else {
     console.error("Cannot find product");
   }
@@ -64,7 +64,7 @@ const buyProduct = (productName) => {
 }
 
 buyProduct("meat");
-buyProduct("ананас");
+buyProduct("pineapple");
 buyProduct("buckweat");
 
 console.log(products);
